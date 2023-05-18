@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "canisters": {
+    "emoji_drop_backend": {
+      "type": "motoko",
+      "main": "src/emoji_drop_backend/main.mo"
+    },
+    "emoji_drop_frontend": {
+      "type": "assets",
+      "source": [
+        "src/emoji_drop_frontend/assets"
+      ],
+      "dependencies": [
+        "emoji_drop_backend"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  "output_env_file": ".env"
+}
