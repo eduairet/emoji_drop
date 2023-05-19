@@ -62,6 +62,9 @@ Este sencillo Canister cumple la simple, pero importante función, de recibir em
 -   Alternativamente se puede jugar a través de la **Candid UI**
     ![Candid UI](./_resources/candid-ui.png)
 
+-   O en el _[playground](https://m7sm4-2iaaa-aaaab-qabra-cai.ic0.app/)_
+    ![Playground](./_resources/playground.png)
+
 ## Planes a futuro
 
 -   [ ] Me gustaría explorar más a fondo la manera de validar los emojis utilizando los códigos de `Unicode`
