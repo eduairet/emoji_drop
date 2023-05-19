@@ -2,11 +2,18 @@ import Debug "mo:base/Debug";
 import Text "mo:base/Text";
 import Nat "mo:base/Nat";
 import HashMap "mo:base/HashMap";
+import Bool "mo:base/Bool";
 
 actor EmojiDrop {
   let emojis = HashMap.HashMap<Text, Nat>(0, Text.equal, Text.hash);
 
   public func sendEmoji(emoji : Text) : async (Text, ?Nat) {
+    Debug.print(Nat.toText(emoji.size()));
+
+    if (not checkEmoji(emoji)) {
+      return ("Not an emoji", null);
+    };
+
     let count : ?Nat = emojis.get(emoji);
 
     switch (count) {
@@ -37,5 +44,10 @@ actor EmojiDrop {
     };
 
     return (maxEmoji, maxCount);
+  };
+
+  func checkEmoji(emoji : Text) : Bool {
+    if (emoji.size() != 1) { return false };
+    return true;
   };
 };
