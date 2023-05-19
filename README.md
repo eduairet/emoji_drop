@@ -23,7 +23,7 @@ Este sencillo Canister cumple la simple, pero importante función, de recibir em
     sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
     ```
 
--   Comenzar un entorno local de réplica
+-   Comenzar un entorno local de ejecución
     ```Shell
     # Verifica estar en el directorio de este proyecto
     dfx start
