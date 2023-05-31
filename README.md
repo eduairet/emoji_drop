@@ -1,10 +1,11 @@
 # EmojiDrop
 
-Este sencillo Canister cumple la simple, pero importante función, de recibir emojis como regalo de los usuarios.
+DApp que permite regalar emojis a un Canister en Internet Computer.
 
 ## Archivos
 
--   Canister -> [`src/emoji_drop_backend/main.mo`](./src/emoji_drop_backend/main.mo)
+-   **_Canister_** -> [`src/emoji_drop_backend/main.mo`](./src/emoji_drop_backend/main.mo)
+-   **_Frontend_** -> [`/src/emoji_drop_frontend`](./src/emoji_drop_frontend/)
 
 ## Estructura del canister
 
@@ -69,8 +70,10 @@ Este sencillo Canister cumple la simple, pero importante función, de recibir em
 -   O en el _[**playground**](https://m7sm4-2iaaa-aaaab-qabra-cai.ic0.app/)_
     ![Playground](./_resources/playground.png)
 
+## Frontend
+
+-   Creado con [Vite](https://vitejs.dev)
+
 ## Planes a futuro
 
--   [ ] Me gustaría explorar más a fondo la manera de validar los emojis utilizando los códigos de `Unicode`
--   [ ] Construir una interfaz de usuario que haga divertido el regalar emojis
--   [ ] Desplegar a mainnet
+-   [ ] Explorar a fondo la manera de validar los emojis utilizando los códigos de `Unicode`

@@ -8,11 +8,14 @@
     "emoji_drop_frontend": {
       "type": "assets",
       "source": [
-        "src/emoji_drop_frontend/assets"
+        "src/emoji_drop_frontend/dist/"
       ],
       "dependencies": [
         "emoji_drop_backend"
-      ]
+      ],
+      "frontend": {
+        "entrypoint": "src/emoji_drop_frontend/index.html"
+      }
     }
   },
   "defaults": {
