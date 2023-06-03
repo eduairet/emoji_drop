@@ -73,6 +73,12 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
 ## Frontend
 
 -   Creado con [Vite](https://vitejs.dev)
+-   Cumple con las siguientes funciones
+    -   Selección el emoji que se quiere regalar al canister
+    -   Verificación de identidad con Internet Identity para evitar _spam_ y sobregasto de _cycles_
+    -   _Call to Action_ que ejecuta la función `sendEmoji()` del canister backend
+    -   Muestra el Emoji más popular obtenido del query `topEmoji()`
+        ![UI](./_resources/ui.png)
 
 ## Planes a futuro
 
