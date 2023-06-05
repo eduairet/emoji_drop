@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Typography } from '@mui/material';
 
 export default function TopEmoji() {
     const [topEmoji, setTopEmoji] = useState<string>('');
@@ -12,8 +13,8 @@ export default function TopEmoji() {
 
     return (
         <>
-            <h2>Top Emoji</h2>
-            <h2>{topEmoji}</h2>
+            <Typography variant='h2'>Top Emoji</Typography>
+            <Typography variant='h2'>{topEmoji}</Typography>
         </>
     );
 }

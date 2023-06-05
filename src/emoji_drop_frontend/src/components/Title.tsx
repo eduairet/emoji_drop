@@ -1,8 +1,5 @@
+import { Typography } from '@mui/material';
+
 export default function Title() {
-    return (
-        <>
-            <h1>Emoji Drop</h1>
-            <h2>😬</h2>
-        </>
-    );
+    return <Typography variant='h1'>Emoji Drop</Typography>;
 }
