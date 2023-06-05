@@ -22,7 +22,13 @@
     "motoko",
     "dfx",
     "canister",
-    "internet-computer"
+    "internet-computer",
+    "vite",
+    "typescript",
+    "javascript",
+    "css",
+    "html",
+    "material-ui"
   ],
   "author": "Eduardo Aire Torres",
   "license": "MIT",
@@ -31,12 +37,13 @@
   },
   "homepage": "https://github.com/eduairet/emoji_drop#readme",
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "ts-loader": "^9.4.3",
-    "typescript": "^5.0.2",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
@@ -45,6 +52,8 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.2",
     "vite": "^4.3.9"
   }
 }
