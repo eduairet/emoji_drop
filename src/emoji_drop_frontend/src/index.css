@@ -1,20 +1,10 @@
-:root {
-    color-scheme: light;
-    background-color: white;
-    font-synthesis: none;
-    text-align: center;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-}
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    width: 100vw;
-    padding: 2rem;
+    background-color: #ddd;
+    padding: 2rem 0 4rem 0;
 }

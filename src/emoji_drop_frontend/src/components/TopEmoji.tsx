@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 export default function TopEmoji() {
     const [topEmoji, setTopEmoji] = useState<string>('');
@@ -12,9 +12,9 @@ export default function TopEmoji() {
     }, []);
 
     return (
-        <>
-            <Typography variant='h2'>Top Emoji</Typography>
+        <Box>
+            <Typography variant='h3'>Top Emoji</Typography>
             <Typography variant='h2'>{topEmoji}</Typography>
-        </>
+        </Box>
     );
 }

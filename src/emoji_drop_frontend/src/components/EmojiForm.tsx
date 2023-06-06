@@ -12,9 +12,9 @@ const emojis =
     '😀😃😄😁😆😅😂🤣😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤬🤯😳🥵🥶😱😨😰😥😓🤗🤔🤭🤫🤥😶😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😵🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👿👹👺';
 
 export default function EmojiForm() {
-    const [emoji, setEmoji] = useState('');
-    const handleChange = (emoji: string): void => {
-        setEmoji(emoji);
+    const [emoji, setEmoji] = useState<string>('');
+    const handleChange = (e: SelectChangeEvent): void => {
+        setEmoji(e.target.value);
     };
     const handleSubmit = (e: FormEvent): void => {
         e.preventDefault();
@@ -29,16 +29,14 @@ export default function EmojiForm() {
                 id='emoji'
                 label='Emoji'
                 value={emoji}
-                onChange={(e: SelectChangeEvent): void =>
-                    handleChange(e.target.value)
-                }
+                onChange={handleChange}
             >
-                {[...emojis].map((emoji: string, i: number) => (
+                {[...emojis].map((em: string, i: number) => (
                     <MenuItem
                         key={`emoji-${String(i).padStart(3, '0')}`}
-                        value='emoji'
+                        value={em}
                     >
-                        {emoji}
+                        {em}
                     </MenuItem>
                 ))}
             </Select>
@@ -48,6 +46,6 @@ export default function EmojiForm() {
             <Button type='submit' variant='outlined' size='large'>
                 Send
             </Button>
-        </FormGroup>
+        </FormGroup >
     );
 }
