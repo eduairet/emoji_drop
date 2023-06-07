@@ -78,7 +78,8 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
     -   Verificación de identidad con Internet Identity para evitar _spam_ y sobregasto de _cycles_
     -   _Call to Action_ que ejecuta la función `sendEmoji()` del canister backend
     -   Muestra el Emoji más popular obtenido del query `topEmoji()`
-        ![UI](./_resources/ui.png)
+
+![UI](./_resources/ui.png)
 
 ## Planes a futuro
 
