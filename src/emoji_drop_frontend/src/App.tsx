@@ -1,4 +1,4 @@
-import { Container, Paper } from '@mui/material';
+import { Container, Divider, Paper } from '@mui/material';
 import EmojiForm from './components/EmojiForm';
 import Title from './components/Title';
 import TopEmoji from './components/TopEmoji';
@@ -8,7 +8,9 @@ function App() {
         <Container maxWidth="xs">
             <Paper elevation={8}>
                 <Title />
+                <Divider />
                 <EmojiForm />
+                <Divider />
                 <TopEmoji />
             </Paper>
         </Container>

@@ -30,6 +30,7 @@ export default function EmojiForm() {
                 label='Emoji'
                 value={emoji}
                 onChange={handleChange}
+                inputProps={{ IconComponent: () => null, sx: { padding: '0 !important' } }}
             >
                 {[...emojis].map((em: string, i: number) => (
                     <MenuItem
