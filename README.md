@@ -4,8 +4,8 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
 
 ## Archivos
 
--   **_Canister_** -> [`src/emoji_drop_backend/main.mo`](./src/emoji_drop_backend/main.mo)
--   **_Frontend_** -> [`/src/emoji_drop_frontend`](./src/emoji_drop_frontend/)
+-   **_Backend_** -> [`src/emoji_drop_backend`](./src/emoji_drop_backend/)
+-   **_Frontend_** -> [`src/emoji_drop_frontend`](./src/emoji_drop_frontend/)
 
 ## Estructura del canister
 
