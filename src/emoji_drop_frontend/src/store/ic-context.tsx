@@ -1,35 +1,35 @@
-import React, { PropsWithChildren, createContext, useEffect, useState } from 'react';
-import { emoji_drop_backend } from '../../../declarations/emoji_drop_backend'; // Replace with your actual declaration file
+import { ReactNode, createContext, useEffect, useState } from 'react';
+import { emoji_drop_backend } from '../../../declarations/emoji_drop_backend';
 
 interface ICContextValue {
     topEmoji: [string, bigint];
+    checkTopEmoji: () => void;
+}
+interface ProviderProps {
+    children: ReactNode;
 }
 
 export const ICContext = createContext<ICContextValue | undefined>(undefined);
 
-export const ICContextProvider: React.FC = ({ children }: PropsWithChildren) => {
-    const [topEmoji, setTopEmoji] = useState<[string, bigint]>(['', BigInt(0)]);
-
-    useEffect(() => {
-        const fetchTopEmoji = async () => {
+export const ICContextProvider = (props: ProviderProps) => {
+    const [topEmoji, setTopEmoji] = useState<[string, bigint]>(['', BigInt(0)]),
+        checkTopEmoji: () => void = async () => {
             try {
                 const response: [string, bigint] = await emoji_drop_backend.topEmoji();
+                console.log('Top emoji:', response);
                 setTopEmoji(response);
             } catch (error) {
                 console.error('Error fetching top emojis:', error);
             }
         };
 
-        fetchTopEmoji();
+    useEffect(() => {
+        checkTopEmoji();
     }, []);
 
-    const contextValue: ICContextValue = {
-        topEmoji,
-    };
-
     return (
-        <ICContext.Provider value={contextValue}>
-            {children}
+        <ICContext.Provider value={{ topEmoji, checkTopEmoji }}>
+            {props.children}
         </ICContext.Provider>
     );
 };

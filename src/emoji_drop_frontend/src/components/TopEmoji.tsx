@@ -1,15 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Box, Typography } from '@mui/material';
+import { ICContext } from '../store/ic-context';
+
+
 
 export default function TopEmoji() {
-    const [topEmoji, setTopEmoji] = useState<string>('');
-    const fetchTopEmoji = async () => {
-        setTopEmoji('😎');
-    };
-
-    useEffect(() => {
-        fetchTopEmoji();
-    }, []);
+    const icCtx = useContext(ICContext);
 
     return (
         <Box marginBottom={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2 }}>
@@ -29,7 +25,7 @@ export default function TopEmoji() {
                 outline: 'none',
                 boxShadow: `0 0.25rem 0 0 #666`,
             }}>
-                {topEmoji}
+                {icCtx ? icCtx.topEmoji[0] : null}
             </Typography>
         </Box>
     );
