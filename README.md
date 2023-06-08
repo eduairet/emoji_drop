@@ -79,8 +79,34 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
     -   _Call to Action_ que ejecuta la función `sendEmoji()` del canister backend
     -   Muestra el Emoji más popular obtenido del query `topEmoji()`
 
-![UI](./_resources/ui.png)
+## Fullstack:
+
+-   Para correr la DApp localmente hay que seguir los siguientes pasos:
+    -   Iniciar una terminal en el directorio raíz
+    -   Iniciar una réplica local `npm start --clean`
+    -   En una nueva terminal generar el ambiente de desarrollo y desplegar los canisters con `npm run setup`
+    -   Se generará el directorio `src/declarations/emoji_drop_backend` que contendrá los elementos para interactuar con el backend, así como el archivo `.did`
+        ```DID
+        service : {
+            allEmojis: () -> (text) query;
+            getEmoji: (text) -> (text, opt nat) query;
+            sendEmoji: (text) -> (text, opt nat);
+            topEmoji: () -> (text, nat) query;
+        }
+        ```
+    -   Ir a las direcciones que se muestran en terminal
+        ```SHELL
+        Deployed canisters.
+        URLs:
+        Frontend canister via browser
+            emoji_drop_frontend: http://127.0.0.1:4943/?canisterId=bd3sg-teaaa-aaaaa-qaaba-cai
+        Backend canister via Candid interface:
+            emoji_drop_backend: http://127.0.0.1:4943/?canisterId=be2us-64aaa-aaaaa-qaabq-cai&id=bkyz2-fmaaa-aaaaa-qaaaq-cai
+        ```
+    -   Y ahora se puede interactuar con ambos canisters
 
 ## Planes a futuro
 
 -   [ ] Explorar a fondo la manera de validar los emojis utilizando los códigos de `Unicode`
+
+![UI](./_resources/ui.png)
