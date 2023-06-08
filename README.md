@@ -16,7 +16,7 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
 -   `allEmojis()` -> Muestra todos los emojis recibidos en el canister
 -   `checkEmoji(emoji)` -> Función interna que revisa que los _inputs_ del usuario sean en verdad emojis.
 
-## Probar el canister
+## Ambiente
 
 -   Asegurarse de tener una terminal `UNIX` y tener instalado el `SDK`
 
@@ -29,6 +29,9 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
     # Verifica estar en el directorio de este proyecto
     dfx start
     ```
+
+## Backend
+
 -   Despliega el canister
     ```Shell
     dfx deploy
