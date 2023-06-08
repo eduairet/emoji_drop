@@ -6,22 +6,21 @@
       "main": "src/emoji_drop_backend/main.mo"
     },
     "emoji_drop_frontend": {
-      "type": "assets",
-      "source": [
-        "src/emoji_drop_frontend/dist/"
-      ],
       "dependencies": [
         "emoji_drop_backend"
       ],
+      "type": "assets",
       "frontend": {
-        "entrypoint": "src/emoji_drop_frontend/index.html"
-      }
+        "entrypoint": "src/emoji_drop_frontend/dist/index.html"
+      },
+      "source": [
+        "src/emoji_drop_frontend/dist/"
+      ]
     }
   },
   "defaults": {
     "build": {
-      "packtool": "",
-      "args": ""
+      "packtool": "npm run --silent sources"
     }
   },
   "output_env_file": ".env"

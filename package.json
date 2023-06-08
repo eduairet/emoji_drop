@@ -1,11 +1,18 @@
 {
   "name": "emoji_drop",
-  "version": "1.0.0",
+  "homepage": "https://github.com/eduairet/emoji_drop#readme",
   "description": "DApp que permite regalar emojis a un Canister en Internet Computer.",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "main": "README.md",
   "scripts": {
-    "dev": "vite",
+    "setup": "npm ci && dfx canister create emoji_drop_backend && dfx generate emoji_drop_backend && dfx deploy",
+    "frontend": "vite",
+    "backend": "mo-dev --generate --deploy -y",
     "build": "tsc && vite build",
+    "sources": "mops sources",
+    "postinstall": "mops install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -35,7 +42,6 @@
   "bugs": {
     "url": "https://github.com/eduairet/emoji_drop/issues"
   },
-  "homepage": "https://github.com/eduairet/emoji_drop#readme",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
@@ -44,14 +50,20 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@dfinity/agent": "^0.15.6",
+    "@dfinity/candid": "^0.15.6",
+    "@dfinity/principal": "^0.15.6",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "ic-mops": "^0.14.0",
+    "mo-dev": "^0.10.1",
     "ts-loader": "^9.4.3",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
