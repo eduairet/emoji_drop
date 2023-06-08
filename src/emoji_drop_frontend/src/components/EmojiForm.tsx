@@ -14,21 +14,37 @@ const emojis =
     '😀😃😄😁😆😅😂🤣😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤬🤯😳🥵🥶😱😨😰😥😓🤗🤔🤭🤫🤥😶😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😵🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👿👹👺';
 
 export default function EmojiForm() {
-    const [emoji, setEmoji] = useState<string>(''),
-        icCtx = useContext(ICContext),
+    const icCtx = useContext(ICContext),
+        [emoji, setEmoji] = useState<string>(''),
+        [isLoading, setIsLoading] = useState<boolean>(false),
+        handleVerify = async (): Promise<void> => {
+            setIsLoading(true);
+            try {
+                const request = await icCtx?.verifyIdentity();
+                alert(request);
+            } catch (err: Error | any) {
+                alert(`There was an error with your identity: ${err.message}`);
+            }
+            setIsLoading(false);
+        },
         handleChange = (e: SelectChangeEvent): void => {
             setEmoji(e.target.value);
         },
         handleSubmit = async (e: FormEvent): Promise<void> => {
-            console.log('Sending');
+            setIsLoading(true);
             e.preventDefault();
             try {
+                if (!emoji || !emojis.includes(emoji)) {
+                    throw new Error('Invalid emoji');
+                }
                 const request = await emoji_drop_backend.sendEmoji(`${emoji}`);
                 icCtx?.checkTopEmoji();
-                alert(request);
-            } catch (err) {
-                alert(err);
+                setEmoji('');
+                alert(`${request[0]} added!`);
+            } catch (err: Error | any) {
+                alert(`There was an error with your request: ${err.message}`);
             }
+            setIsLoading(false);
         };
 
     return (
@@ -51,11 +67,11 @@ export default function EmojiForm() {
                     </MenuItem>
                 ))}
             </Select>
-            <Button variant='outlined' color='secondary' size='small'>
-                Verify
+            <Button variant='outlined' color='secondary' size='small' onClick={handleVerify} disabled={isLoading}>
+                {isLoading ? 'Wait...' : 'Verify'}
             </Button>
-            <Button type='submit' variant='outlined' size='large' onClick={handleSubmit}>
-                Send
+            <Button type='submit' variant='outlined' size='large' onClick={handleSubmit} disabled={isLoading}>
+                {isLoading ? 'Wait...' : 'Send'}
             </Button>
         </FormGroup >
     );

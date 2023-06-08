@@ -136,6 +136,11 @@ const mainTheme: Theme = createTheme({
                             borderStyle: 'solid',
                             backgroundColor: colors.light,
                             fontWeight: 900,
+                        },
+                        '&:disabled': {
+                            color: colors.light,
+                            borderColor: colors.light,
+                            borderWidht: 'current',
                         }
                     }
                 },
@@ -149,6 +154,9 @@ const mainTheme: Theme = createTheme({
                         boxShadow: `0 0.25rem 0 0 ${colors.dark}`,
                         borderWidth: `4px`,
                         '&:hover': {
+                            borderWidth: `4px`,
+                        },
+                        '&:disabled': {
                             borderWidth: `4px`,
                         }
                     }
@@ -164,6 +172,9 @@ const mainTheme: Theme = createTheme({
                         boxShadow: `0 0.5rem 0 0 ${colors.dark}`,
                         borderWidth: `5px`,
                         '&:hover': {
+                            borderWidth: `5px`,
+                        },
+                        '&:disabled': {
                             borderWidth: `5px`,
                         }
                     }
