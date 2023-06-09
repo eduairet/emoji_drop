@@ -43,7 +43,7 @@ export const ICContextProvider = (props: ProviderProps) => {
                     agent,
                 });
                 console.log(actor);
-                setVerified(true);
+                actor && setVerified(true);
             } catch (err) {
                 setVerified(false);
             }
