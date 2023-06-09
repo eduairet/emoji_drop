@@ -42,7 +42,6 @@ export const ICContextProvider = (props: ProviderProps) => {
                 actor = createActor(process.env.EMOJI_DROP_BACKEND_CANISTER_ID || '', {
                     agent,
                 });
-                console.log(actor);
                 actor && setVerified(true);
             } catch (err) {
                 setVerified(false);
