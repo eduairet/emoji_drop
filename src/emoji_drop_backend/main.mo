@@ -5,13 +5,14 @@ import Text "mo:base/Text";
 import Iter "mo:base/Iter";
 import HashMap "mo:base/HashMap";
 import Debug "mo:base/Debug";
+import Principal "mo:base/Principal";
 
 actor EmojiDrop {
   // HashMap que cuenta la cantidad de emojis recbidos
   let emojis = HashMap.HashMap<Text, Nat>(0, Text.equal, Text.hash);
 
   // Función que envía un emoji al Canister
-  public func sendEmoji(emoji : Text) : async (Text, ?Nat) {
+  public shared (message) func sendEmoji(emoji : Text) : async (Text, ?Nat) {
     // Validación de input
     if (not checkEmoji(emoji)) {
       return ("Not an emoji", null);

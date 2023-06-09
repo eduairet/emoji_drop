@@ -1,8 +1,6 @@
-import { useEffect, useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Box, Typography } from '@mui/material';
 import { ICContext } from '../store/ic-context';
-
-
 
 export default function TopEmoji() {
     const icCtx = useContext(ICContext);

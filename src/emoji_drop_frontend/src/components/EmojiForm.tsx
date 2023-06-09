@@ -17,15 +17,15 @@ export default function EmojiForm() {
     const icCtx = useContext(ICContext),
         [emoji, setEmoji] = useState<string>(''),
         [isLoading, setIsLoading] = useState<boolean>(false),
+        [isVerifying, setIsVerifying] = useState<boolean>(false),
         handleVerify = async (): Promise<void> => {
-            setIsLoading(true);
+            setIsVerifying(true);
             try {
-                const request = await icCtx?.verifyIdentity();
-                alert(request);
+                icCtx?.verifyIdentity();
             } catch (err: Error | any) {
                 alert(`There was an error with your identity: ${err.message}`);
             }
-            setIsLoading(false);
+            setIsVerifying(false);
         },
         handleChange = (e: SelectChangeEvent): void => {
             setEmoji(e.target.value);
@@ -67,10 +67,10 @@ export default function EmojiForm() {
                     </MenuItem>
                 ))}
             </Select>
-            <Button variant='outlined' color='secondary' size='small' onClick={handleVerify} disabled={isLoading}>
-                {isLoading ? 'Wait...' : 'Verify'}
+            <Button variant='outlined' color='secondary' size='small' onClick={handleVerify} disabled={isVerifying || icCtx?.verified}>
+                {isVerifying ? 'Wait...' : 'Verify'}
             </Button>
-            <Button type='submit' variant='outlined' size='large' onClick={handleSubmit} disabled={isLoading}>
+            <Button type='submit' variant='outlined' size='large' onClick={handleSubmit} disabled={isLoading || !icCtx?.verified}>
                 {isLoading ? 'Wait...' : 'Send'}
             </Button>
         </FormGroup >

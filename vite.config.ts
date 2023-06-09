@@ -1,10 +1,15 @@
 import react from '@vitejs/plugin-react';
+import EnvironmentPlugin from 'vite-plugin-environment'
 import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
+import { config } from 'dotenv';
 import { defineConfig } from 'vite';
 
+config();
 const localNetwork = 'local';
 const network = process.env['DFX_NETWORK'] || localNetwork;
+const iiCanisterID = process.env["INTERNET_IDENTITY_CANISTER_ID"];
+const internetIdentityUrl = network === "local" ? `http://localhost:4943/?canisterId=${iiCanisterID}` : `https://identity.ic0.app`;
 
 let canisterIdPath: string;
 if (network === localNetwork) {
@@ -24,7 +29,13 @@ const canisterIds = JSON.parse(readFileSync(canisterIdPath, 'utf8'));
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    EnvironmentPlugin({
+      NODE_ENV: "development",
+      II_URL: internetIdentityUrl
+    })
+  ],
   root: 'src/emoji_drop_frontend/',
   define: {
     global: 'window',
