@@ -108,8 +108,15 @@ DApp que permite regalar emojis a un Canister en Internet Computer.
         ```
     -   Y ahora se puede interactuar con ambos canisters
 
-## Planes a futuro
+## DApp en mainnet
 
--   [ ] Explorar a fondo la manera de validar los emojis utilizando los códigos de `Unicode`
+-   Se puede interactuar con los canisters en mainnet en las siguientes URL
+    -   Backend [a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=sbd6b-yqaaa-aaaao-aspaq-cai](https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=sbd6b-yqaaa-aaaao-aspaq-cai)
+    -   Frontend [siav5-oyaaa-aaaao-aspba-cai.icp0.io/](https://siav5-oyaaa-aaaao-aspba-cai.icp0.io/)
 
 ![UI](./_resources/ui.png)
+
+## Planes a futuro
+
+-   [ ] Explorar a fondo la manera de validar los emojis con `Unicode`
+-   [ ] Mejorar elementos y validaciones en backend y frontend
